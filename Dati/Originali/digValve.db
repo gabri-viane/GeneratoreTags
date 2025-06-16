@@ -1,0 +1,75 @@
+﻿DATA_BLOCK "IstanceSolenoid"
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+NON_RETAIN
+"@val FB200 digVAL"
+
+BEGIN
+   SAMPLE_T := 1.0;
+   Restart := FALSE;
+   pbREM_LOC := FALSE;
+   pbLOC_OP := FALSE;
+   pbLOC_CL := FALSE;
+   fbkOP := FALSE;
+   fbkOP_Qbad := FALSE;
+   fbkOP_Dis := FALSE;
+   fbkCL := FALSE;
+   fbkCL_Qbad := FALSE;
+   fbkCL_Dis := FALSE;
+   qCTRL_QBad := FALSE;
+   SAFEPos := FALSE;
+   LockToSAFEPos := FALSE;
+   forceOP := FALSE;
+   forceCL := FALSE;
+   sMON_OP := 10.0;
+   sMON_CL := 10.0;
+   sMON := 0.0;
+   MonERR_TRIP := FALSE;
+   qCTRL := FALSE;
+   qCTRL_N := TRUE;
+   qCTRL_HMI := FALSE;
+   qOPENING := FALSE;
+   qOPENED := FALSE;
+   qCLOSING := FALSE;
+   qCLOSED := FALSE;
+   qMOVING := FALSE;
+   qRDY := FALSE;
+   qMON_OpERR := FALSE;
+   qMON_ClERR := FALSE;
+   qMON_fbkERR := FALSE;
+   qCSF_ERR := FALSE;
+   qGR_ERR := FALSE;
+   qBYP := FALSE;
+   wALM := 16#0000;
+   wHMIST := 16#0000;
+   TRIPreset := FALSE;
+   modeREMOTE := FALSE;
+   modeAUTO := FALSE;
+   modeAUTO_Link := FALSE;
+   openAUTO := FALSE;
+   hmiPB_OP := FALSE;
+   hmiPB_Cl := FALSE;
+   hmiBYP_FBOP := FALSE;
+   hmiBYP_FBCL := FALSE;
+   RESET_EVAL := FALSE;
+   CSF_ERR := FALSE;
+   MON_ERR_FBK := FALSE;
+   MON_ERR_OP := FALSE;
+   MON_ERR_CL := FALSE;
+   FB_OP_EVAL := FALSE;
+   FB_OP_BYPASSED := FALSE;
+   FB_CL_EVAL := FALSE;
+   FB_CL_BYPASSED := FALSE;
+   MON_DLY := FALSE;
+   MON_CL_DLY := TRUE;
+   MON_OP_DLY := FALSE;
+   QOPENED_NEG := TRUE;
+   QCLOSED_NEG := TRUE;
+   TIME_MON := 10.0;
+   TIME_MON_OP := 10.0;
+   TIME_MON_CL := 10.0;
+   DESCR := '';
+   TAG := '';
+
+END_DATA_BLOCK
+

@@ -1,0 +1,10 @@
+﻿DATA_BLOCK "IstanceDigital"
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+NON_RETAIN
+"@pc FB400 monDI"
+
+BEGIN
+
+END_DATA_BLOCK
+

@@ -1,0 +1,79 @@
+﻿DATA_BLOCK "DB %%TAG%%"
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+NON_RETAIN
+"@val FB300 anVAL"
+
+BEGIN
+   SAMPLE_T := 0.1;
+   Restart := FALSE;
+   BumpLess := TRUE;
+   SAFEPos := FALSE;
+   fbkAI_Dis := TRUE;
+   fbkOP_Digi_Dis := TRUE;
+   fbkCL_Digi_Dis := TRUE;
+   fbkAI := 0.0;
+   fbkOP_Digi := FALSE;
+   fbkCL_Digi := FALSE;
+   fbkAI_Qbad := FALSE;
+   fbkOP_Qbad := FALSE;
+   fbkCL_Qbad := FALSE;
+   qCTRL_QBad := FALSE;
+   LockToSAFEPos := FALSE;
+   SET_fbkCL_SETq := 2.0;
+   SET_fbkCL_SETdelay := 10.0;
+   SET_fbkOP_SETq := 5.0;
+   SET_fbkOP_SETdelay := 10.0;
+   SET_Time_ERRDiscr := 0.0;
+   MonERR_TRIP := TRUE;
+   forceOP := FALSE;
+   forceCL := FALSE;
+   NM_upLim := 100.0;
+   NM_loLim := 0.0;
+   RAW_upLim := 100.0;
+   RAW_loLim := 0.0;
+   outCARD_upLim := 20.0;
+   outCARD_loLim := 4.0;
+   SetPoint_upLim := 100.0;
+   SetPoint_loLim := 0.0;
+   qPAW := 0;
+   qCARD := 4.0;
+   qPV := 0.0;
+   qCSF_ERR := FALSE;
+   qFBK_ERR := FALSE;
+   qGR_ERR := FALSE;
+   qCLOSED := TRUE;
+   qCLOSED_digiFC := FALSE;
+   qOPENED := FALSE;
+   qOPENED_digiFC := FALSE;
+   qFB_AI := 0.0;
+   wALM := 16#0000;
+   wHMIST := 16#0000;
+   TRIPreset := FALSE;
+   modeAUTO_Link := FALSE;
+   modeAUTO := TRUE;
+   hmiBYP_FBOP_Digi := FALSE;
+   hmiBYP_FBCL_Digi := FALSE;
+   hmiBYP_FBAI := FALSE;
+   SetPoint_AUTO := 0.0;
+   SetPoint_MAN := 0.0;
+   SAFEPos_Spool := 0.0;
+   RESET_EVAL := FALSE;
+   MEM_IN := 0.0;
+   MEM_PERC := 0.0;
+   IN_SPAN := 100.0;
+   SCA_SPAN := 16.0;
+   AO_ALT_SPAN := 0.0;
+   TIME_QCL := 0.0;
+   TIME_DISCR := 0.0;
+   TIME_QOP := 0.0;
+   TAG := '%%TAG%%';
+   DESCR := '%%DESC%%';
+   fbkERR_THR_Up := 7.5;
+   fbkERR_THR_Lo := -7.5;
+   fbkERR_Deteced := FALSE;
+   fbkERR_Delayed := FALSE;
+   PosizioneAttuale := 0.0;
+
+END_DATA_BLOCK
+

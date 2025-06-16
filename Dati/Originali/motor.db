@@ -1,0 +1,68 @@
+﻿DATA_BLOCK "IstanceMotore"
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+NON_RETAIN
+"@mot FB100 Motor"
+
+BEGIN
+   SAMPLE_T := 0.1;
+   Restart := FALSE;
+   pbREM_LOC := TRUE;
+   pbLOCSTR_FW := FALSE;
+   pbLOCSTR_RV := FALSE;
+   pbLOCSTP := TRUE;
+   CFGrunREVERSE := FALSE;
+   fbkRUN_F := FALSE;
+   fbkRUN_R := FALSE;
+   fbkRUN_QBad := FALSE;
+   CFGfbkRUN_Dis := FALSE;
+   MSS := TRUE;
+   MSS_QBad := FALSE;
+   MSS_Dis := FALSE;
+   qCTRL_QBad := FALSE;
+   LockRun := TRUE;
+   LockStart := TRUE;
+   sMON_Run := 10.0;
+   sMON_Stp := 10.0;
+   qCTRL_F := FALSE;
+   qCTRL_R := FALSE;
+   qCTRL := FALSE;
+   qMOVING := FALSE;
+   qSTARTING := FALSE;
+   qSTOPPING := FALSE;
+   qRUN := FALSE;
+   qSTOP := TRUE;
+   qRDY := TRUE;
+   qMON_RunERR := FALSE;
+   qMON_StpERR := FALSE;
+   qMSS_ERR := FALSE;
+   qCSF_ERR := FALSE;
+   qGR_ERR := FALSE;
+   qEXT_TRIP := FALSE;
+   wALM := 16#0000;
+   wHMIST := 16#0000;
+   TRIPreset := FALSE;
+   modeAUTO := TRUE;
+   modeREMOTE := TRUE;
+   modeAUTO_Link := FALSE;
+   startAUTO := FALSE;
+   startAUTO_RV := FALSE;
+   hmiPB_Str_FW := FALSE;
+   hmiPB_Str_RV := FALSE;
+   hmiPB_Stp := FALSE;
+   RESET_EVAL := FALSE;
+   CSF_ERR := FALSE;
+   TRIP_ERR := FALSE;
+   MON_START_FW_DLY := FALSE;
+   MON_START_RV_DLY := FALSE;
+   MON_STOP_DLY := TRUE;
+   FB_RUN_EVAL_FW := FALSE;
+   FB_RUN_EVAL_RV := FALSE;
+   TIME_MON_START_FW := 0.0;
+   TIME_MON_START_RV := 0.0;
+   TIME_MON_STOP := 10.0;
+   DESCR := 'POMPA DI MANDATA';
+   TAG := 'P2504';
+
+END_DATA_BLOCK
+

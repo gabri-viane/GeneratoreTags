@@ -1,0 +1,42 @@
+﻿DATA_BLOCK "DB PB_strt"
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+NON_RETAIN
+"@pc FB400 monDI"
+
+BEGIN
+    SAMPLE_T := 1.00
+    IN := false
+    simIN := false
+    HMI_SIM := false
+    CFG_NC := TRUE
+    CSF := false
+    CSF_isTRIP := false
+    ALM_isTRIP := false
+    hmiContrBYP := TRUE
+    plcENnALM := false
+    timSET_ALMOn := 0.00
+    timSET_ALMOff := 0.00
+    Q := false
+    QNEG := false
+    QDLY := false
+    QBYP := false
+    QALM := false
+    QSIM := false
+    QCSF_ERR := false
+    QGR_ERR := false
+    wALM := 0
+    wHMIST := 0
+    RESET_HMI := false
+    RESET_EVAL := false
+    ALM_IN_DLY := false
+    ALM_OUT_DLY := false
+    ALM_ACT := false
+    ALM_GEN := false
+    CSF_ERR := false
+    TIME_ALM_IN := 0.00
+    TIME_ALM_OUT := 0.00
+    DESCR := 'Start impianto'
+    TAG := 'PB_strt'
+END_DATA_BLOCK
+

@@ -1,0 +1,53 @@
+%%TAG%%	%%DESC%%	%%UNIT%%
+TT002	Temperatura ingresso acqua di raffreddamento	°C
+TT005	Temperatura uscita pompa di raffreddamento backup	°C
+TT016	Temperatura ambiente container	°C
+AT014_AI	Trasmettitore CO2	%
+AT015_AI	Trasmettitore O2	%
+TT219	Temperatura acqua raffreddamento camicia compressore	°C
+TT211	Unità di compressione V3001 Temperatura della serranda di mandata	°C
+TT206	Temperatura ingresso separatore di condensa 1 stadio	°C
+TT242	Temperatura uscita separatore di condensatore 2 stadio	°C
+TT221	Temperatura uscita separatore di condensatore 1stadio	°C
+PT200	Pressione aspirazione	mbar
+TT400	Temperatura di uscita	°C
+TT403	Temperatura V4000	°C
+TT404	Temperatura V4001	°C
+TT001	Temperatura ingresso acqua di raffreddamento	°C
+DPT300	V3004 Trasmettirore di pressione differenziale per filtri a carbone	mbar
+PT400	Pressione V4000	mbar
+PT401	Pressione V4001	mbar
+PT501	Pressione aspirazione C5001	mbar
+PT502	Pressione mandata C5001	mbar
+PT503	Pressione ingresso E5003	mbar
+PT506	Pressione uscita E5005	mbar
+PT606	Pressione uscita LCO2	mbar
+PT616	Pressione E6002	mbar
+LT501	Livello R5008	%
+LT611	Livello E6002	%
+TT501	Temperatura R5008	°C
+TT503	Temperatura mandata C5001	°C
+TT507	Temperatura uscita E5005	°C
+FT635	Flussimetro uscita LCO2	Lt/h
+DPT600	Trappola a freddo ingresso LCO2 diff. trasmettitore di pressione	mbar
+TT547	Temperatura SP5004	°C
+LT511	Livello SP5004	%
+PT809_1	Ingresso pompa di trasferimento trasmettitore di pressione	mbar
+FT805_1	LCO2 trasmettitore di flusso	Lt/h
+PT815_1	Uscita della pompa di trasferimento trasmettirore di pressione	mbar
+TT821_1	Uscita della pompa di trasferimento trasmettitore di temperatura	°C
+PT809_2	Ingresso pompa di trasferimento trasmettitore di pressione	mbar
+FT805_2	LCO2 trasmettitore di flusso	Lt/h
+PT815_2	Uscita della pompa di trasferimento trasmettirore di pressione	mbar
+TT821_2	Uscita della pompa di trasferimento trasmettitore di temperatura	°C
+LT802_1	Serbatoio di stoccaggio liquidi T7001 trasmettitore di livello	%
+PT803_1	Serbatoio per liquidi T7001 trasmettitore di pressione	mbar
+LT802_2	Serbatoio di stoccaggio liquidi T7002 trasmettitore di livello	%
+PT803_2	Serbatoio per liquidi T7002 trasmettitore di pressione	mbar
+TT510	Temperatura iingresso E5005	°C
+DPT400	F4000 Trasmettitore di pressione differenziale per filtri antipolvere	mbar
+FT400	Unità di essicazione trasmettitore di flusso	Lt/h
+AT400	Analizzatore del punto di rugiada in uscita	%
+SND_T_COMP	Sonda di compensazione	°C
+TT405	Temperatura H4000	°C
+TT406	Temperatura H4001	°C

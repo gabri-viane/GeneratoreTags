@@ -1,0 +1,62 @@
+%%TAG%%	%%DESC%%
+AUX_ALARM_AC	Scatto termico circuiti ausiliari 230/24V AC
+AUX_ALARM_DC	Scatto termico circuiti ausiliari 24V DC
+PILZ	Modulo circuito emergenza
+EB_MCC	Pulsante emergenza
+PB_strt	Start impianto
+PB_stp	Stop Impianto
+PB_rst	Emergenza allarme
+PB_ack	Acquisizione allarme
+SURGE_OK	Scaricatori sovratensioni
+LIGHT1_TAH	Illuminazione container zona skid
+LIGHT2_TAH	Illuminazione container sla controllo
+041A1	Stato sirius 041a1
+042A1	Stato sirius 042a1
+FSL208	Consegna del compressore pressostato
+PSL204	Serranda di aspirazione pressostato
+QF2	Allarme avvertimento
+QF2_C	Allarme comune
+ARGO_400V_TAH	Compressore d'aria intervento termico
+ARGO_2230V_TAH	Essicatore ad aria intervento termico
+ARGO_2230V_YSH	Essicatore ad aria in funzione
+PTECH01_TAH	Sistema di analisi intervento termico
+K_RUN_EXT	Impianto in funzione
+K_RUN_STP	Impianto fermo
+K_RUN_STRT	Start impianto
+KGA_NC	Allarme Chiller contatto NC
+KGA_NO	Allarme Chiller contatto NO
+PSL009	Pressione ingresso pompa raffreddamento di riserva
+AT014_DI	Trasmettitore CO2
+AT105_DI	Trasmettitore O2
+LSH217	Livello separatore di condensa 1 stadio
+LSH209	Livello separatore condensa 2 stadio
+PSL203	Unita di compress. pressostato dell'olio
+ZSL400	Valvola di ingresso al serbatoio V4000
+ZSH400	Valvola di ingresso al serbatoio V4001
+TSL358	Temperatura separatore di condensa
+LSH359	Livello scarico separatore di condensa
+LSL512	Livello olio C5001
+TSH638	Temperatura H6004
+M0003_A_ALM	Allarme Ventilatore motore A raffreddatore d'aria
+M0003_B_ALIM	Allarme Ventilatore motore B raffreddatore d'aria
+EB_04A	Pompa trasferimento locale pul. emergenza
+PSL828_1	Scarico gas CO2 press. bassa pressione
+PSL829_1	Carica LCO2 press. bassa pressione
+P8001_1_LS	Pompa di trasferimento LCO2 int.locale CH.1
+EB_04B	Pompa trasferimento locale pul. emergenza
+PSL828_2	Scarico gas CO2 press. bassa pressione
+PSL829_2	Carica LCO2 press. bassa pressione
+P8001_2_LS	Pompa di trasferimento LCO2 int.locale CH.1
+043A1	Stato Sirius 043A1
+EB_3_ext	Emergenza 3 container (esterno container lato quadro)
+EB_PTECH02	Emergenza PENTATECH 02
+M5001_ALM	Contatto allarme protezione motore
+EB_1(1)	Emergenza 1 Container
+EB_2(1)	Emergenza 2 container (esterno container lato impianto)
+EB_06	Emergenza SKID 06
+PSH210	Consegna del compressore pressostato
+171KA2_CO2_SIGNAL	Sensore CO2 avvertenza
+171KA3_CO2_ALARM	Sensore CO2 allarme
+173KA4_FAN_SENSOR	Sensore ventilazione
+CH8_DI_E1009	PTC controllo temperatura pompa di trasferimento A
+CH9_DI_E1009	PTC controllo temperatura pompa di trasferimento B

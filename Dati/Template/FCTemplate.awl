@@ -1,0 +1,22 @@
+﻿FUNCTION "%%FCName%%" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      SAMPLE_T : Real;
+   END_VAR
+
+   VAR CONSTANT 
+      %%Costanti%%
+   END_VAR
+
+
+BEGIN
+NETWORK
+TITLE = %%DESC%%
+
+      CALL "%%NomeFB%%", "DB %%TAG%%"
+      (  SAMPLE_T                    := #SAMPLE_T
+      );
+
+END_FUNCTION
+
