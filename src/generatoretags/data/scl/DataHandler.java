@@ -1,7 +1,5 @@
-package generatoretags.data;
+package generatoretags.data.scl;
 
-
-import generatoretags.data.scl.Variable;
 import static generatoretags.data.scl.VariableType.Byte;
 import static generatoretags.data.scl.VariableType.Word;
 
@@ -11,7 +9,14 @@ import static generatoretags.data.scl.VariableType.Word;
  */
 public class DataHandler {
 
+    public static boolean hasDefault(Variable v){
+        return v.getDefaultValue() != null;
+    }
+    
     public static Object computeDefault(Variable v) {
+        if (v.getDefaultValue() != null) {
+            return v.getDefaultValue();
+        }
         switch (v.getType()) {
             case Bool -> {
                 return "FALSE";

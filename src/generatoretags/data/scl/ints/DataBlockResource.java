@@ -1,0 +1,90 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package generatoretags.data.scl.ints;
+
+import generatoretags.data.scl.DataHandler;
+import generatoretags.data.ints.ResourceElement;
+import generatoretags.data.ints.ResourceType;
+import generatoretags.data.scl.RetainType;
+import generatoretags.data.scl.Variable;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author gabri
+ */
+public abstract class DataBlockResource extends ResourceElement{
+
+    protected boolean optimizedAccess = false;
+    protected String version = "0.1";
+    protected RetainType retain = RetainType.NON_RETAIN;
+
+    protected List<Variable> variables;
+
+    public DataBlockResource(String name) {
+        super(ResourceType.DataBlock);
+        super.name = name;
+        this.variables = new ArrayList<>();
+    }
+
+    protected DataBlockResource(String name, ResourceType rt) {
+        super(rt);
+        super.name = name;
+        this.variables = new ArrayList<>();
+    }
+
+    protected abstract String getDeclarationEnd();
+
+    public void setOptimizedAccess(boolean optimizedAccess) {
+        this.optimizedAccess = optimizedAccess;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public void setRetain(RetainType retain) {
+        this.retain = retain;
+    }
+
+    public boolean isOptimizedAccess() {
+        return optimizedAccess;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public RetainType getRetain() {
+        return retain;
+    }
+
+    public List<Variable> getVariables() {
+        return variables;
+    }
+
+    @Override
+    public String getDefinition() {
+        StringBuilder sb = new StringBuilder("BEGIN\n");
+        this.variables.forEach(v -> {
+            sb.append("\t").append(v.getName()).append(" := ").append(DataHandler.computeDefault(v)).append(";\n");
+        });
+        sb.append("END_DATA_BLOCK");
+        return sb.toString();
+    }
+
+    @Override
+    public String getDeclaration() {
+        StringBuilder sb = new StringBuilder("DATA_BLOCK \"");
+        sb.append(super.name).append("\"\n").append("{ S7_Optimized_Access := '")
+                .append(this.optimizedAccess ? "TRUE' }\n" : "FALSE' }\n")
+                .append("VERSION : ").append(this.version).append("\n")
+                .append(this.retain.toString()).append("\n");
+        sb.append(getDeclarationEnd());
+        return sb.toString();
+    }
+
+}

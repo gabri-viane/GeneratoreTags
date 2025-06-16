@@ -11,7 +11,7 @@ package generatoretags.data.ints;
 public abstract class ResourceElement implements Resource {
 
     protected String name;
-    protected final ResourceType rt;
+    protected ResourceType rt;
 
     public ResourceElement(ResourceType rt) {
         this.rt = rt;

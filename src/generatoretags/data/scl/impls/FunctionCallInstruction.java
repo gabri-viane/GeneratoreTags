@@ -16,7 +16,7 @@ import java.util.List;
  * @author gabri
  */
 public class FunctionCallInstruction implements SCLInstruction {
-    
+
     private static final long serialVersionUID = 1L;
 
     private Resource callingFunction;
@@ -35,7 +35,7 @@ public class FunctionCallInstruction implements SCLInstruction {
     }
 
     public void bindDBInstance(Resource DB) {
-        if (DB == null || !DB.getType().equals(ResourceType.FunctionInterfaceInstance)) {
+        if (DB == null || !DB.getType().equals(ResourceType.FunctionInstance)) {
             this.bindedDB = null;
             this.hasDBInstance = false;
             return;
@@ -57,22 +57,26 @@ public class FunctionCallInstruction implements SCLInstruction {
         if (this.hasDBInstance) {
             sb.append(", \"").append(this.bindedDB.getName()).append("\"");
         }
-        sb.append("\t( ");
-        this.callParameters.forEach(v -> {
-            Object value = v.getDefaultValue();
-            if (value != null) {
-                String name = v.getName();
-                if (name.contains(" ") || name.contains("\t")) {
-                    sb.append("\"").append(name).append("\"");
-                } else {
-                    sb.append(name);
+        if (!this.callParameters.isEmpty()) {
+            sb.append("\t( ");
+            this.callParameters.forEach(v -> {
+                Object value = v.getDefaultValue();
+                if (value != null) {
+                    String name = v.getName();
+                    if (name.contains(" ") || name.contains("\t")) {
+                        sb.append("\"").append(name).append("\"");
+                    } else {
+                        sb.append(name);
+                    }
+                    sb.append(" := ").append(value.toString()).append(",\n");
                 }
-                sb.append(" := ").append(value.toString()).append(",\n");
-            }
-        });
-        sb.deleteCharAt(sb.length() - 1);
-        sb.deleteCharAt(sb.length() - 1);
-        sb.append(");");
+            });
+            sb.deleteCharAt(sb.length() - 1);
+            sb.deleteCharAt(sb.length() - 1);
+            sb.append(");");
+        }else{
+            sb.append(";");
+        }
         return sb.toString();
     }
 

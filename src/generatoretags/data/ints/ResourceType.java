@@ -10,7 +10,7 @@ package generatoretags.data.ints;
  */
 public enum ResourceType {
     
-    FunctionBlock("FB"), Function("FC"), DataBlock("DB"), FunctionInterfaceInstance("FBI");
+    FunctionBlock("FB"), Function("FC"), DataBlock("DB"), FunctionInstance("DBI");
     
     
     private final String shortName;

@@ -60,4 +60,17 @@ public class Variable implements Serializable {
         return type;
     }
 
+    public String getDeclaration() {
+        StringBuilder sb = new StringBuilder(this.name);
+        sb.append(" : ").append(this.type.toString());
+        if (this.length > 0) {
+            sb.append("[").append(this.length).append("]");
+        }
+        sb.append(";");
+        if (this.comment != null && !this.comment.isBlank()) {
+            sb.append(" //").append(this.comment);
+        }
+        return sb.toString();
+    }
+
 }

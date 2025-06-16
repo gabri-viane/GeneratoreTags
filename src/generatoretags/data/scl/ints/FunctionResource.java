@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package generatoretags.data.ints;
+package generatoretags.data.scl.ints;
 
+import generatoretags.data.ints.Reloadable;
+import generatoretags.data.ints.ResourceElement;
+import generatoretags.data.ints.ResourceType;
 import generatoretags.data.scl.Network;
 import generatoretags.data.scl.Variable;
 import java.util.ArrayList;
