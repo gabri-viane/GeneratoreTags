@@ -4,6 +4,7 @@
  */
 package generatoretags.data;
 
+import generatoretags.data.ints.ResourceElement;
 import generatoretags.data.ints.ResourceType;
 
 /**
@@ -11,29 +12,18 @@ import generatoretags.data.ints.ResourceType;
  * @author gabri
  */
 public class ProjectResource {
-    
-    private ResourceType type;
-    private String resourceName;
-    
-    public ProjectResource(String resourceName,ResourceType type){
-        this.resourceName=resourceName;
-        this.type = type;
+
+    private ResourceElement re;
+
+    public ProjectResource(ResourceElement re) {
+        this.re = re;
     }
 
     public String getResourceName() {
-        return resourceName+" ["+type.toString()+"]";
+        return re.getName() + " [" + re.getType().toString() + "]";
     }
 
     public ResourceType getType() {
-        return type;
+        return re.getType();
     }
-
-    public void setResourceName(String resourceName) {
-        this.resourceName = resourceName;
-    }
-
-    public void setType(ResourceType type) {
-        this.type = type;
-    }
-    
 }

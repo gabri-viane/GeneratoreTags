@@ -4,6 +4,9 @@
  */
 package generatoretags.data.ints;
 
+import generatoretags.data.scl.Variable;
+import java.util.Map;
+
 /**
  *
  * @author gabri
@@ -17,6 +20,8 @@ public abstract class ResourceElement implements Resource {
         this.rt = rt;
     }
 
+    public abstract Map<String, Variable> getVariables();
+
     @Override
     public final String getName() {
         return this.name;
@@ -29,7 +34,7 @@ public abstract class ResourceElement implements Resource {
 
     @Override
     public final String toString() {
-        return getDefinition() + "\n" + getDeclaration();
+        return getDeclaration() + "\n" + getDefinition();
     }
 
 }

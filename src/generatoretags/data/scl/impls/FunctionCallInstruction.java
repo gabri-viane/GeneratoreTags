@@ -6,6 +6,7 @@ package generatoretags.data.scl.impls;
 
 import generatoretags.data.ints.Resource;
 import generatoretags.data.ints.ResourceType;
+import generatoretags.data.scl.DataHandler;
 import generatoretags.data.scl.ints.SCLInstruction;
 import generatoretags.data.scl.Variable;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class FunctionCallInstruction implements SCLInstruction {
 
     public FunctionCallInstruction(Resource FunctionInstance) {
         if (!FunctionInstance.getType().equals(ResourceType.Function)
-                || !FunctionInstance.getType().equals(ResourceType.FunctionBlock)) {
+                && !FunctionInstance.getType().equals(ResourceType.FunctionBlock)) {
             throw new RuntimeException("Expected Function or FunctionBlock call. Found : " + FunctionInstance.getType().name());
         }
         this.callingFunction = FunctionInstance;
@@ -42,6 +43,19 @@ public class FunctionCallInstruction implements SCLInstruction {
         }
         this.bindedDB = DB;
         this.hasDBInstance = true;
+    }
+
+    public void removeBinding() {
+        this.bindedDB = null;
+        this.hasDBInstance = false;
+    }
+
+    public void addCallParameter(Variable v) {
+        this.callParameters.add(v);
+    }
+
+    public void removeCallParameter(Variable v) {
+        this.callParameters.remove(v);
     }
 
     @Override
@@ -60,7 +74,7 @@ public class FunctionCallInstruction implements SCLInstruction {
         if (!this.callParameters.isEmpty()) {
             sb.append("\t( ");
             this.callParameters.forEach(v -> {
-                Object value = v.getDefaultValue();
+                Object value = DataHandler.getValue(v);
                 if (value != null) {
                     String name = v.getName();
                     if (name.contains(" ") || name.contains("\t")) {
@@ -74,7 +88,7 @@ public class FunctionCallInstruction implements SCLInstruction {
             sb.deleteCharAt(sb.length() - 1);
             sb.deleteCharAt(sb.length() - 1);
             sb.append(");");
-        }else{
+        } else {
             sb.append(";");
         }
         return sb.toString();

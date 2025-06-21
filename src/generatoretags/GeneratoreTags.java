@@ -4,11 +4,13 @@
  */
 package generatoretags;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import generatoretags.data.scl.Network;
+import generatoretags.data.scl.Variable;
+import generatoretags.data.scl.VariableType;
+import generatoretags.data.scl.impls.DataBlockInstanceElement;
+import generatoretags.data.scl.impls.FunctionBlockElement;
+import generatoretags.data.scl.impls.FunctionCallInstruction;
+import generatoretags.data.scl.impls.FunctionElement;
 
 /**
  *
@@ -21,34 +23,28 @@ public class GeneratoreTags {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Triple<String, String, String> monDI = new Triple<>("C:\\Users\\TEA\\Desktop\\Generati\\Template\\monDI.db", "C:\\Users\\TEA\\Desktop\\Generati\\listaMonDI.txt", "C:\\Users\\TEA\\Desktop\\Generati\\monDI\\DB ");
-        Triple<String, String, String> monAI = new Triple<>("C:\\Users\\TEA\\Desktop\\Generati\\Template\\monAI.db", "C:\\Users\\TEA\\Desktop\\Generati\\listaMonAI.txt", "C:\\Users\\TEA\\Desktop\\Generati\\monAI\\DB ");
+        FunctionBlockElement fb = new FunctionBlockElement("@pc test 5000");
 
-        List<Triple<String, String, String>> files = new ArrayList();
-        files.add(monDI);
-        files.add(monAI);
+        Variable sample_t = new Variable("SAMPLE_T", VariableType.Real);
+        sample_t.setDefaultValue(0.01d);
+        fb.addInput(sample_t);
 
-        files.forEach(triplet -> {
-            FileTemplate ft = new FileTemplate(triplet.getLeft());
-            ft.load();
-            TagsLoader tl = new TagsLoader(triplet.getCenter());
-            tl.load();
+        Variable prova = new Variable("Prova", VariableType.Bool);
+        fb.addInput(prova);
 
-            tl.getData().forEach((line) -> {
-                String path = triplet.getRight() + line.get("%%TAG%%") + ".db";
-                try {
-                    File f = new File(path);
-                    f.createNewFile();
-                    try (FileWriter fw = new FileWriter(f)) {
-                        fw.append(ft.replaceTags(line));
-                        fw.flush();
-                    }
-                } catch (IOException ex) {
-                    System.getLogger(GeneratoreTags.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-                }
-            });
-        });
+        fb.addOutput(new Variable("TestOUT", VariableType.String));
 
+        FunctionElement fc = new FunctionElement("@pc temp");
+        fc.addInput(prova);
+        Network n = new Network("test");
+        fc.addNetwork(n);
+
+        DataBlockInstanceElement fbinstance = new DataBlockInstanceElement("SB 224", fb);
+        FunctionCallInstruction functionCallInstruction = new FunctionCallInstruction(fb);
+        functionCallInstruction.bindDBInstance(fbinstance);
+        n.addInstruction(functionCallInstruction);
+        
+        System.out.println(fc);
     }
 
 }

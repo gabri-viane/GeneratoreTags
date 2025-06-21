@@ -4,9 +4,9 @@
  */
 package generatoretags.data.scl.impls;
 
-import generatoretags.data.scl.ints.FunctionResource;
 import generatoretags.data.ints.ResourceType;
 import generatoretags.data.scl.Variable;
+import generatoretags.data.scl.ints.FunctionResource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,12 +14,12 @@ import java.util.Map;
  *
  * @author gabri
  */
-public class FunctionBlockElement extends FunctionResource {
+public class FunctionElement extends FunctionResource {
 
     private static final long serialVersionUID = 1L;
 
-    public FunctionBlockElement(String name) {
-        super(name, ResourceType.FunctionBlock);
+    public FunctionElement(String name) {
+        super(name, ResourceType.Function);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class FunctionBlockElement extends FunctionResource {
         this.networks.forEach(netw -> {
             sb.append(netw.toString()).append("\n");
         });
-        sb.append("END_FUNCTION_BLOCK");
+        sb.append("END_FUNCTION");
         this.definition = sb.toString();
         return this.definition;
     }
@@ -38,7 +38,7 @@ public class FunctionBlockElement extends FunctionResource {
         if (declaration == null) {
             this.reload();
         }
-        String declInit = "FUNCTION_BLOCK \"" + super.name + "\"\n";
+        String declInit = "FUNCTION \"" + super.name + "\" : void\n";
         return declInit + this.declaration;
     }
 
@@ -51,5 +51,5 @@ public class FunctionBlockElement extends FunctionResource {
         variables.putAll(this.statics);
         return variables;
     }
-
+    
 }

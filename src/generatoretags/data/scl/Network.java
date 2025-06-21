@@ -29,6 +29,13 @@ public class Network implements Serializable {
             this.title = title;
         }
     }
+    
+    public void addInstruction(SCLInstruction inst){
+        if(inst == null){
+            return;
+        }
+        this.instructions.add(inst);
+    }
 
     public String getTitle() {
         return title;

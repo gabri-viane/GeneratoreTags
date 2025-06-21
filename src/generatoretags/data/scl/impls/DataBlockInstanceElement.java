@@ -9,9 +9,9 @@ import generatoretags.data.ints.ResourceType;
 import generatoretags.data.scl.Variable;
 import generatoretags.data.scl.ints.DataBlockResource;
 import generatoretags.data.scl.ints.FunctionResource;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Rapparesenta un DataBlock d'istanza ed è associato a una Function [FC] o
@@ -42,8 +42,8 @@ public class DataBlockInstanceElement extends DataBlockResource implements Reloa
     }
 
     @Override
-    public List<Variable> getVariables() {
-        return Collections.unmodifiableList(variables);
+    public Map<String, Variable> getVariables() {
+        return Collections.unmodifiableMap(variables);
     }
 
     /**
@@ -55,19 +55,22 @@ public class DataBlockInstanceElement extends DataBlockResource implements Reloa
      * @param value Il valore da impostare.
      */
     public void setVariableDefaultValue(Variable v, Object value) {
-        int indexOf = this.variables.indexOf(value);
-        if (indexOf > -1) {
-            this.variables.get(indexOf).setDefaultValue(value);
+        if (v == null) {
+            return;
+        }
+        Variable variable = this.variables.get(v.getName());
+        if (variable != null) {
+            variable.setDefaultValue(value);
         }
     }
 
     @Override
     public final void reload() {
-        super.variables = new ArrayList<>();
-        variables.addAll(bindedFunction.getInputs());
-        variables.addAll(bindedFunction.getOutputs());
-        variables.addAll(bindedFunction.getInout());
-        variables.addAll(bindedFunction.getStatics());
+        super.variables = new HashMap<>();
+        variables.putAll(bindedFunction.getInputs());
+        variables.putAll(bindedFunction.getOutputs());
+        variables.putAll(bindedFunction.getInout());
+        variables.putAll(bindedFunction.getStatics());
     }
 
 }

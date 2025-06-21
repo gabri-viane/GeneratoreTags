@@ -9,11 +9,25 @@ import static generatoretags.data.scl.VariableType.Word;
  */
 public class DataHandler {
 
-    public static boolean hasDefault(Variable v){
+    public static boolean hasDefault(Variable v) {
         return v.getDefaultValue() != null;
     }
-    
+
+    public static Object getValue(Variable v) {
+        if(v == null){
+            return null;
+        }
+        return switch (v.getType()) {
+            case Variable -> "#" + v.getName();
+            case Tag -> "\"" + v.getName() + "\"";
+            default -> computeDefault(v);
+        };
+    }
+
     public static Object computeDefault(Variable v) {
+        if (v == null) {
+            return null;
+        }
         if (v.getDefaultValue() != null) {
             return v.getDefaultValue();
         }
