@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package generatoretags.data.generators;
+package generatoretags.data.rules;
 
+import generatoretags.data.rules.ints.RuleType;
+import generatoretags.data.rules.ints.Rule;
 import generatoretags.data.ints.ResourceElement;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -59,16 +61,16 @@ public class RuleApplier implements Serializable {
         }
         this.resources.put(re.getName(), re);
     }
-    
-    public void removeResource(ResourceElement re){
-        if(re == null){
+
+    public void removeResource(ResourceElement re) {
+        if (re == null) {
             return;
         }
         this.resources.remove(re.getName());
     }
 
     public void compute() {
-        Map<RuleType, List<Rule>> _rules = this.rules;
+        Map<RuleType, List<Rule>> _rules = Map.copyOf(this.rules);
         BoolAtom bool = new BoolAtom(false);
 
         for (RuleType rt : RuleType.values()) {
@@ -77,8 +79,8 @@ public class RuleApplier implements Serializable {
                 continue;
             }
             rls.forEach((rl) -> {
-                Object compute = rl.compute(this);
-                if (compute instanceof Rule<?>) {
+                Object compute = rl.compute(this, null);
+                if (compute instanceof Rule<?, ?, ?>) {
                     bool.set(true);
                 }
             });

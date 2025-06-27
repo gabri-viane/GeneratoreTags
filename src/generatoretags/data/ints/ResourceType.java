@@ -4,15 +4,18 @@
  */
 package generatoretags.data.ints;
 
+import java.io.Serializable;
+
 /**
  *
  * @author gabri
  */
-public enum ResourceType {
+public enum ResourceType implements Serializable {
     
     FunctionBlock("FB"), Function("FC"), DataBlock("DB"), FunctionInstance("DBI");
     
     
+    private static final long serialVersionUID = 1L;
     private final String shortName;
     
     private ResourceType(String shrtName){

@@ -6,6 +6,11 @@ package generatoretags.gui;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import generatoretags.gui.frames.ProjectDefinitions;
+import generatoretags.gui.panels.project.ProjectCreator;
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JInternalFrame;
 import javax.swing.UIManager;
 
 /**
@@ -14,7 +19,7 @@ import javax.swing.UIManager;
  */
 public class MainApp extends javax.swing.JFrame {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainApp.class.getName());
+    private static final SharedData sharedData = new SharedData();
 
     /**
      * Creates new form MainApp
@@ -25,6 +30,7 @@ public class MainApp extends javax.swing.JFrame {
         v.setLocation(50, 50);
         v.setVisible(true);
         DesktopPane.add(v);
+        initDataListeners();
     }
 
     /**
@@ -39,6 +45,7 @@ public class MainApp extends javax.swing.JFrame {
         DesktopPane = new javax.swing.JDesktopPane();
         AppMenuBar = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
+        NewProject = new javax.swing.JMenuItem();
         EditMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,6 +58,16 @@ public class MainApp extends javax.swing.JFrame {
         getContentPane().add(DesktopPane);
 
         FileMenu.setText("File");
+
+        NewProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        NewProject.setText("Nuovo Progetto");
+        NewProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewProjectActionPerformed(evt);
+            }
+        });
+        FileMenu.add(NewProject);
+
         AppMenuBar.add(FileMenu);
 
         EditMenu.setText("Edit");
@@ -60,6 +77,28 @@ public class MainApp extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void NewProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewProjectActionPerformed
+        // TODO add your handling code here:
+        ProjectCreator content = new ProjectCreator(sharedData);
+
+        JInternalFrame jif = new JInternalFrame("Nuovo progetto", false, true, true, true);
+        jif.setLayout(new GridBagLayout());
+        jif.add(content);
+        Dimension preferredSize = content.getMinimumSize();
+        preferredSize.height = preferredSize.height + 20;
+        preferredSize.width = preferredSize.width + 20;
+        jif.setSize(preferredSize);
+        jif.setVisible(true);
+        //JInternalFrame jif = FrameCreator.createFrame("Nuovo progetto", false, content);
+        jif.setLayer(3);
+        this.DesktopPane.add(jif);
+
+        content.addCloseRequestListener(() -> {
+            jif.setVisible(false);
+            this.DesktopPane.remove(jif);
+        });
+    }//GEN-LAST:event_NewProjectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,12 +118,15 @@ public class MainApp extends javax.swing.JFrame {
 //                }
 //            }
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+            System.err.println(ex.toString());
         }
         //</editor-fold>
-
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new MainApp().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> {
+            MainApp app = new MainApp();
+            app.setIconImage(new ImageIcon(MainApp.class.getResource("/generatoretags/resources/icon.png")).getImage());
+            app.setVisible(true);
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -92,8 +134,13 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JDesktopPane DesktopPane;
     private javax.swing.JMenu EditMenu;
     private javax.swing.JMenu FileMenu;
+    private javax.swing.JMenuItem NewProject;
     // End of variables declaration//GEN-END:variables
 
-
+    private void initDataListeners() {
+        sharedData.addProjectEventListener((data) -> {
+            this.setTitle(data.getProjectName());
+        });
+    }
 
 }

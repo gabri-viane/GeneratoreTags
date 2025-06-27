@@ -234,9 +234,9 @@ public class ProjectDefinitions extends javax.swing.JInternalFrame {
         if (evt.getClickCount() > 1 && !DefsList.isSelectionEmpty()) {
             ProjectResource selectedValue = DefsList.getSelectedValue();
             if (selectedValue.getType() == ResourceType.Function) {
-                selectedValue.setType(ResourceType.FunctionBlock);
+                //selectedValue.setType(ResourceType.FunctionBlock);
             } else {
-                selectedValue.setType(ResourceType.Function);
+                //selectedValue.setType(ResourceType.Function);
             }
             DefsList.repaint();
         }
@@ -252,7 +252,7 @@ public class ProjectDefinitions extends javax.swing.JInternalFrame {
                 for (String row : rows) {
                     String content = row.split("\t")[0];
                     if (!content.isBlank() && content.trim().length() > 0) {
-                        addElementToResourceList(new ProjectResource(content, ResourceType.Function));
+                        //addElementToResourceList(new ProjectResource(content, ResourceType.Function));
                     }
                 }
             } catch (UnsupportedFlavorException | IOException ex) {
@@ -280,7 +280,7 @@ public class ProjectDefinitions extends javax.swing.JInternalFrame {
         if (FBType.isSelected()) {
             rt = ResourceType.FunctionBlock;
         }
-        addElementToResourceList(new ProjectResource(name, rt));
+        //addElementToResourceList(new ProjectResource(name, rt));
     }//GEN-LAST:event_ConfirmAddResourceMouseClicked
 
     private void DiscardAddResourceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DiscardAddResourceMouseClicked

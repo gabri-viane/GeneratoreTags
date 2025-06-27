@@ -2,18 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package generatoretags.data.generators;
+package generatoretags.data.rules.ints;
 
 import java.io.Serializable;
 
 /**
  *
  * @author gabri
- * @param <T> Valore restituito dalla regola
+ * @param <P> Tipo del parametro
+ * @param <R> Tipo di ritorno
  */
-public interface Rule<T> extends Serializable{
-    
-    public RuleType getRuleType();
-
-    public T compute(RuleApplier generator);
+public interface FunctionCallback<P,R> extends Serializable{
+    public R onCall(P param);
 }

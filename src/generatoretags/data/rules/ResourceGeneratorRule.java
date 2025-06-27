@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package generatoretags.data.generators;
+package generatoretags.data.rules;
 
 import generatoretags.data.ints.ResourceElement;
 
@@ -12,6 +12,7 @@ import generatoretags.data.ints.ResourceElement;
  */
 public class ResourceGeneratorRule extends RuleApplier {
 
+    private static final long serialVersionUID = 1L;
     protected ResourceElement re;
     protected String elementName;
 

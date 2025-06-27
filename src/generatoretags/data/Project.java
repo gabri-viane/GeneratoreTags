@@ -4,7 +4,7 @@
  */
 package generatoretags.data;
 
-import generatoretags.data.generators.RuleApplier;
+import generatoretags.data.rules.RuleApplier;
 import generatoretags.data.ints.ResourceElement;
 import generatoretags.data.ints.ResourceType;
 import java.io.Serializable;
@@ -50,6 +50,10 @@ public class Project implements Serializable {
         return toret;
     }
 
+    public Map<ResourceType, Map<String, ResourceElement>> getResources() {
+        return Map.copyOf(resources);
+    }
+
     public void removeResource(ResourceElement re) {
         if (re == null) {
             return;
@@ -60,8 +64,8 @@ public class Project implements Serializable {
         }
         get.remove(re.getName());
     }
-    
-    public void addRuleApplier(RuleApplier ra){
+
+    public void addRuleApplier(RuleApplier ra) {
         this.ruleAppliers.add(ra);
     }
 

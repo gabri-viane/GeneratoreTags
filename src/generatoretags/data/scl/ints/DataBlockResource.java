@@ -18,9 +18,10 @@ import java.util.Map;
  */
 public abstract class DataBlockResource extends ResourceElement {
 
+    private static final long serialVersionUID = 1L;
     protected boolean optimizedAccess = false;
     protected String version = "0.1";
-    protected RetainType retain = RetainType.NON_RETAIN;
+    protected RetainType retain = RetainType.RETAIN;
 
     protected Map<String, Variable> variables;
 
@@ -62,6 +63,7 @@ public abstract class DataBlockResource extends ResourceElement {
         return retain;
     }
 
+    @Override
     public Map<String, Variable> getVariables() {
         return variables;
     }

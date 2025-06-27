@@ -19,7 +19,9 @@ import java.util.Map;
  * @author gabri
  */
 public abstract class FunctionResource extends ResourceElement implements Reloadable {
-
+    
+    private static final long serialVersionUID = 1L;
+    
     protected final Map<String, Variable> inputs;
     protected final Map<String, Variable> outputs;
     protected final Map<String, Variable> inout;

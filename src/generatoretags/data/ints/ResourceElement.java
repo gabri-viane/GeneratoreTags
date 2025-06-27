@@ -12,7 +12,8 @@ import java.util.Map;
  * @author gabri
  */
 public abstract class ResourceElement implements Resource {
-
+    
+    private static final long serialVersionUID = 1L;
     protected String name;
     protected ResourceType rt;
 
